@@ -1,1 +1,8 @@
 
+select d.department_name,count(e.job_id)as "部门总人数",avg(e.salary)as "平均工资"
+from hr.departments
+inner jion hr.employees
+on hr.departments.departments_id = hr.employees. employees_id
+order by d.department_name
+having hr.employees.department_name in ('IT','Sales');
+                            
