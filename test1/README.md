@@ -35,8 +35,8 @@ USING (department_id)
 GROUP BY department_name;
 ~~~
 ### 执行结果
-<p>查询语句1执行结果</p>
-![图1-1](图片链接地址) 
+- 查询语句1执行结果
+![图1-1](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/1-1.png) 
 ### 查询语句1分析
 - 该语句首先执行了id查询d.department_id = e.department_id，然后查找department_name='IT'和department_name='Sales'的信息并找出job_id的个数然后显示出来，通过avg函数算出salary平均工资。使用group by提高了查询的效率。
 ### 自定义查询语句分析
