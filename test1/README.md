@@ -62,6 +62,8 @@ GROUP BY department_name;
 ![图3-3](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/3-3.png)
 </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图3-3
 ### 查询语句1分析
-- 该语句首先执行了id查询d.department_id = e.department_id，然后查找department_name='IT'和department_name='Sales'的信息并找出job_id的个数然后显示出来，通过avg函数算出salary平均工资。使用group by提高了查询的效率。
+- 该语句与查询语句2相比效率更高。
+- 首先执行了id查询d.department_id = e.department_id，然后查找department_name='IT'和department_name='Sales'的信息并找出job_id的个数然后显示出来，通过avg函数算出salary平均工资。使用group by提高了查询的效率。
+- 使用SELECT d.department_name，count(e.job_id)as "部门总人数"，avg(e.salary)as "平均工资" 保证不查询多余的列与行。避免了select * 的存在，使用具体的列代替*，避免多余的列使用where限定具体要查询的数据，避免多余的行。
 ### 自定义查询语句分析
 - 该语句首先执行了id查询d.department_id = e.department_id，然后通过两个表相同名字的属性department_id的值的对比和department_name='IT'和department_name='Sales'条件找到需要的信息。再次说明使用group by可以提高查询的效率。
