@@ -36,19 +36,24 @@ GROUP BY department_name;
 ~~~
 ### 执行结果截图
 - 查询语句1执行结果
+
 ![图1-1](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/1-1.png) 
 
 - 查询语句2执行结果
+
 ![图2-1](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/2-1.png)
 
 - 自定义查询语句执行结果
+
 ![图3-1](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/3-1.png)
 
 - 查询语句1分析结果
+
 ![图1-2](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/1-2.png)
 ![图1-3](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/1-3.png)
 
 - 自定义查询语句分析结果
+
 ![图3-2](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/3-2.png)
 ![图3-3](https://github.com/TenThousandflower/Oracle/blob/master/test1/img/3-3.png)
 ### 查询语句1分析
