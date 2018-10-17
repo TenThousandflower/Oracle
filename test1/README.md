@@ -1,4 +1,8 @@
-
+# 实验一：分析SQL执行计划，执行SQL语句的优化指导
+## 实验内容：
+- 对Oracle12c中的HR人力资源管理系统中的表进行查询与分析。
+- 首先运行和分析教材中的样例：本训练任务目的是查询两个部门('IT'和'Sales')的部门总人数和平均工资，以下两个查询的结果是一样的。但效率不相同。
+- 设计自己的查询语句，并作相应的分析，查询语句不能太简单。
 ### 查询语句1
 ~~~sql
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
@@ -31,7 +35,8 @@ USING (department_id)
 GROUP BY department_name;
 ~~~
 ### 执行结果
-- 查询语句1用时0.036秒，查询语句2用时0.06秒，自定义查询语句用时0.031秒。 所以我认为在前两个查询语句中最优的语句是查询语句1。
+<p>查询语句1执行结果</p>
+![图1-1](图片链接地址) 
 ### 查询语句1分析
 - 该语句首先执行了id查询d.department_id = e.department_id，然后查找department_name='IT'和department_name='Sales'的信息并找出job_id的个数然后显示出来，通过avg函数算出salary平均工资。使用group by提高了查询的效率。
 ### 自定义查询语句分析
