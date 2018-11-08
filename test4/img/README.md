@@ -116,30 +116,30 @@ select * from EMPLOYEES where EMPLOYEE_ID=1;
 SELECT * FROM employees START WITH EMPLOYEE_ID = 11 CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID;
 ~~~
 3.查询订单表，并且包括订单的订单应收货款: Trade_Receivable= sum(订单详单表.ProductNum*订单详单表.ProductPrice)- Discount。
-~~~ slq
+~~~ sql
 select ORDER_ID,CUSTOMER_NAME,CUSTOMER_TEL,ORDER_DATE,EMPLOYEE_ID,DISCOUNT,sum(ORDER_DETAILS.Product_Num*ORDER_DETAILS.Product_Price)- Discount
 from ORDERS,ORDER_DETAILS;
 ~~~
 4.查询订单详表，要求显示订单的客户名称和客户电话，产品类型用汉字描述。
-~~~ slq
+~~~ sql
 select CUSTOMER_NAME as "客户名称",CUSTOMER_TEL as "客户电话",PRODUCT_TYPE as "产品类型"
 from ORDERS o,PRODUCTS p,ORDER_DETAILS d
 where o.ORDER_ID=d.ORDER_ID 
 and d.PRODUCT_NAME=p.PRODUCT_NAME;
 ~~~
 5.查询出所有空订单，即没有订单详单的订单。
-~~~ slq
+~~~ sql
 select distinct ORDERS.ORDER_ID,ORDERS.CUSTOMER_NAME,ORDERS.CUSTOMER_TEL,ORDERS.ORDER_DATE,ORDERS.EMPLOYEE_ID,ORDERS.DISCOUNT,ORDERS.TRADE_RECEIVABLE 
 from ORDERS where ORDERS.ORDER_ID not in (select ORDER_ID from ORDER_DETAILS);
 ~~~
 6.查询部门表，同时显示部门的负责人姓名。
-~~~ slq
+~~~ sql
 select DEPARTMENT_NAME as "部门",MANAGER_ID as "部门负责人" 
 from DEPARTMENTS d,EMPLOYEES e
 where d.DEPARTMENT_ID=e.DEPARTMENT_ID;
 ~~~
 7.查询部门表，统计每个部门的销售总金额。
-~~~ slq
+~~~ sql
 select DEPARTMENT_NAME,sum(ORDERS.TRADE_RECEIVABLE) as "销售总金额"
 from DEPARTMENTS d,EMPLOYEES e,ORDERS o
 where d.DEPARTMENT_ID=e.DEPARTMENT_ID and e.EMPLOYEE_ID=o.EMPLOYEE_ID;
