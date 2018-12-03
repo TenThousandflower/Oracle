@@ -113,14 +113,7 @@ select * from EMPLOYEES where EMPLOYEE_ID=1;
 ~~~
 2.递归查询某个员工及其所有下属，子下属员工。
 ~~~ sql
-for v in
-      (SELECT LEVEL,EMPLOYEE_ID,NAME,MANAGER_ID FROM employees
-      START WITH EMPLOYEE_ID = V_EMPLOYEE_ID=1
-      CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID)
-      LOOP
-        DBMS_OUTPUT.PUT_LINE(LPAD(LEFTSPACE,(V.LEVEL-1)*4,' ')||
-                             V.EMPLOYEE_ID||' '||v.NAME);
-      END LOOP;
+SELECT * FROM employees START WITH EMPLOYEE_ID = 11 CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID;
 ~~~
 3.查询订单表，并且包括订单的订单应收货款: Trade_Receivable= sum(订单详单表.ProductNum*订单详单表.ProductPrice)- Discount。
 ~~~ sql
